@@ -1,0 +1,27 @@
+#Opens source file, copies contents into string text, closes source file
+source = open('rosalind_ini6.txt', 'r')
+text = source.read()
+source.close()
+
+#Opens output file
+output = open('<Dictionaries>output.txt', 'w') 
+
+#Strips text string of \n
+text = text.strip()
+
+#Creates an array words with each word of text an element
+words = text.split(" ")
+
+#Creates dictionary 
+Frequency = {}
+for word in words:
+    if word in Frequency:
+        Frequency[word] = Frequency[word] + 1
+    else:
+        Frequency[word] = 1
+          
+for word in Frequency:
+    output.write(word + " " + str(Frequency[word]) + "\n") 
+
+output.close()
+
